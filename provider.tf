@@ -1,5 +1,5 @@
 provider "aws" {
-    shared_credentials_file= "~/.aws/credentials"
+    #no credentials shall be stored in the file. 
     profile = var.profile
     region = var.region
 }
