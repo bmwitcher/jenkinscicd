@@ -1,3 +1,10 @@
+terraform {
+  backend "s3" {
+    bucket = "terraform-bucket-witcher"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
+}
 
 resource "aws_key_pair" "tf-demo" {
   key_name   = "tf-demo"
@@ -46,7 +53,7 @@ resource "aws_eip_association" "eip_assoc" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["71.63.125.93/32"]
+    cidr_blocks = ["0.0.0.0/0"]
     # cidr_blocks = [aws_eip.elastictest.public_ip/32] open this range up to allow more specific or general ip address
   }
 
